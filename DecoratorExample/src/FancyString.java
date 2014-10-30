@@ -21,4 +21,11 @@ public class FancyString implements DecoratedString {
 		return this.text;
 	}
 
+
+	@Override
+	public void dosPrint() {
+		System.out.println(this.text.replace(' ', '-'));
+		
+	}
+
 }
