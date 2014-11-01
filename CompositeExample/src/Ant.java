@@ -35,28 +35,22 @@ public class Ant {
 		
 	public void roleCall()
 	{
-		//System.out.println("Start Name: " + this.name + " Children:");
-		if(this.children.isEmpty())
+		
+		Ant depthChecker = this.parent;
+		String depth = "";
+		while(depthChecker != null)
 		{
-			System.out.println("\t\tLeaf Ant " + this.name + " parent: " + this.parent.name);
+			depth += "\t";
+			depthChecker = depthChecker.parent;
 		}
-		else
-		{
-			if(this.parent == null)
-			{
-				System.out.println("Root Ant " + this.name);
-			}
-			else
-			{
-				System.out.println("\tNode Ant " + this.name );
-			}
-			
-		}
+		
+		System.out.println(depth + this.name );
+		
+		
 		for(Ant child : this.children)
 		{
 			child.roleCall();
 		}
-		//System.out.println("End "+this.name + " Children");
 	}
 	
 	
